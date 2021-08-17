@@ -1,8 +1,11 @@
 {
     "extends": "@tsconfig/node14/tsconfig.json",
     "compilerOptions": {
-        "preserveConstEnums": true
+        "sourceMap": true,
+        "target": "es2017",
+        "outDir": "./dist",
+        "baseUrl": "./src"
     },
-    "include": ["**/*"],
-    "exclude": ["node_modules", "**/*.spec.ts"]
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"]
 }
