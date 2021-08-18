@@ -7,7 +7,9 @@ class Delivery {
     public path = '/deliveries';
     public router = express.Router();
 
-    constructor() {}
+    constructor() {
+        this.initializeRoutes();
+    }
 
     public initializeRoutes() {
         this.router.get(`${this.path}/daily`, this.getDailyDeliveries);
