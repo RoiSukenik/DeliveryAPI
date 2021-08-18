@@ -4,6 +4,12 @@ import { UserModel, DeliveryModel, TimeSlotModel } from 'models';
 import { IDelivery, IUser } from 'interfaces';
 import { ObjectId } from 'mongoose';
 
+/**
+ * This function is used to change the delivery status.
+ * @param id - delivery  id
+ * @param status - desired delivery status
+ * @returns HTTP_CODE - based on success or failure
+ */
 async function SetStatus(id: string, status: Status): Promise<number> {
     let delivery = await DeliveryModel.findById(id);
     if (!delivery) return HTTP_CODE.INTERNAL_ERROR;
@@ -12,7 +18,13 @@ async function SetStatus(id: string, status: Status): Promise<number> {
     if (!response) return HTTP_CODE.INTERNAL_ERROR;
     return HTTP_CODE.SUCCESS;
 }
-
+/**
+ * This function is used to book a delivery.
+ *
+ * @param user - user object to set delivery to.
+ * @param   timeSlot - time slot to set delivery to.
+ * @return HTTP_CODE - based on success or failure
+ */
 async function BookDelivery(user: IUser, timeslotId: ObjectId): Promise<number> {
     user.TimeSlot = timeslotId;
     const User = new UserModel(user);
@@ -33,7 +45,10 @@ async function BookDelivery(user: IUser, timeslotId: ObjectId): Promise<number> 
     if (!deliveryResp) return HTTP_CODE.INTERNAL_ERROR;
     return HTTP_CODE.SUCCESS;
 }
-
+/**
+ * This function is used to get all deliveries for today.
+ * @returns Promise<number | IDelivery[]> - returns all delivery results or HTTP_CODE 500 if there are any errors.
+ */
 async function GetDaily(): Promise<number | IDelivery[]> {
     const today = new Date();
     const day = today.getDate();
@@ -52,7 +67,10 @@ async function GetDaily(): Promise<number | IDelivery[]> {
     if (!dailyDeliveries) return HTTP_CODE.INTERNAL_ERROR;
     return dailyDeliveries;
 }
-
+/**
+ * This function is used to get all deliveries for this week.
+ * @returns Promise<number | IDelivery[]> - returns all delivery results or HTTP_CODE 500 if there are any errors.
+ */
 async function GetWeekly(): Promise<number | IDelivery[]> {
     const today = new Date();
     const day = today.getDate();

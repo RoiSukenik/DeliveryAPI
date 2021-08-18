@@ -48,6 +48,11 @@ async function isHoliday(countryCode: string, date: Date) {
     return IS_HOLIDAY;
 }
 
+/**
+ * Checks to make sure we do not exceed the allowed number of deliveries for this date.
+ * @param timeSlotsArray - The time slots array to check.
+ * @return Array<ITimeSlot> - An array of ITimeSlot objects.
+ */
 function CheckMaxDailyDeliveries(timeSlotsArray: Array<ITimeSlot>): Array<ITimeSlot> {
     //Sunday - 0 , Saturday - 6 increment the value if that day has let then MAX_DELIVERIES_PER_DAY. else, filter out the timeslot as it is not possible due to MAX_DELIVERIES_PER_DAY.
     let dailyAmount: Array<number> = new Array(DAYS_IN_A_WEEK).fill(0);
@@ -70,7 +75,10 @@ function CheckMaxDailyDeliveries(timeSlotsArray: Array<ITimeSlot>): Array<ITimeS
     }
     return newTimeSlotsArray;
 }
-
+/**
+ *
+ * @returns Promise<ITimeSlot[]> - returns array of time slots that were loaded from courierAPI.json
+ */
 async function LoadCourierApi(): Promise<ITimeSlot[]> {
     const courierApiPath = path.join(__dirname, '../', 'mockData', 'courierAPI.json');
     const courierTimeSlotsResponse = await fetch(courierApiPath);
@@ -87,7 +95,11 @@ async function LoadCourierApi(): Promise<ITimeSlot[]> {
     let resp = CheckMaxDailyDeliveries(courierTimeSlotsArray);
     return resp;
 }
-
+/**
+ *
+ * @param address - The address to check by
+ * @returns Promise<ITimeSlot[] | number> - Code 500 if error occurred | Array of time slots that were loaded, filtering out slots were holidays occurr.
+ */
 async function GetFilteredSlots(address: IAddress): Promise<ITimeSlot[] | number> {
     let filteredSlotsArray: ITimeSlot[] = [];
     const query = {
