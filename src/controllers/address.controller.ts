@@ -22,3 +22,5 @@ class Address {
         res.sendStatus(HTTP_CODE.SUCCESS);
     };
 }
+
+export default Address;

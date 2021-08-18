@@ -49,3 +49,4 @@ class Delivery {
         res.status(200).json(Weekly);
     };
 }
+export default Delivery;

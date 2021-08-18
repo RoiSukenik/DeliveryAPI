@@ -32,3 +32,5 @@ class TimeSlotsController {
         res.status(200).json(filterTimeSlots);
     };
 }
+
+export default TimeSlotsController;
