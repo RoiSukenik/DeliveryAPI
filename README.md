@@ -14,7 +14,8 @@ An API to manage deliveries given a courier API which a json file with upcoming 
 ### API EndPoints
 |EndPoint|Description|Type|
 |----|----|----|
-|```/resolve-address```|Uses [Google GeoCoding](https://developers.google.com/maps/documentation/geocoding/overview) to resolve adress using to following model:  <br> &nbsp;&nbsp;&nbsp;&nbsp; __Street__: String <br> &nbsp;&nbsp;&nbsp;&nbsp; __Country__: String <br>&nbsp;&nbsp;&nbsp;&nbsp;__Country Code__: string <br> &nbsp;&nbsp;&nbsp;&nbsp;__City__: String <br> &nbsp;&nbsp;&nbsp;&nbsp;__State__: String <br> &nbsp;&nbsp;&nbsp;&nbsp;__Postal Code__: String|```POST```|
+|```/resolve-address```|__Arguments:__<br> ```searchTerm``` (Single Line Address)<br><br>__Returns:__<br> Uses [Google GeoCoding](https://developers.google.com/maps/documentation/geocoding/overview) to resolve address using to following model:  <br> &nbsp;&nbsp;&nbsp;&nbsp;```Street```: String <br> &nbsp;&nbsp;&nbsp;&nbsp;```Country```: String <br>&nbsp;&nbsp;&nbsp;&nbsp;```Country Code```: String <br> &nbsp;&nbsp;&nbsp;&nbsp;```City```: String <br> &nbsp;&nbsp;&nbsp;&nbsp;```State```: String <br> &nbsp;&nbsp;&nbsp;&nbsp;```Postal Code```: String|```POST```|
+|```/timeslots```|
 
 
 
