@@ -14,8 +14,8 @@ An API to manage deliveries given a courier API which a json file with upcoming 
 ### API EndPoints
 |EndPoint|Description|Type|
 |----|----|----|
-|```/resolve-address```|__Arguments:__<br> ```searchTerm``` (Single Line Address)<br><br>__Returns:__<br> Uses [Google GeoCoding](https://developers.google.com/maps/documentation/geocoding/overview) to resolve address using to following model:  <br> &nbsp;&nbsp;&nbsp;&nbsp;```Street```: String <br> &nbsp;&nbsp;&nbsp;&nbsp;```Country```: String <br>&nbsp;&nbsp;&nbsp;&nbsp;```Country Code```: String <br> &nbsp;&nbsp;&nbsp;&nbsp;```City```: String <br> &nbsp;&nbsp;&nbsp;&nbsp;```State```: String <br> &nbsp;&nbsp;&nbsp;&nbsp;```Postal Code```: String|```POST```|
-|```/timeslots```|
+|```/resolve-address```|Uses [Google GeoCoding](https://developers.google.com/maps/documentation/geocoding/overview) to resolve address.<br><br>__Arguments:__<br> &nbsp;&nbsp;&nbsp;&nbsp;```searchTerm```(Single Line Address)<br>__Returns:__<br> &nbsp;&nbsp;&nbsp;&nbsp;```Street```: String <br> &nbsp;&nbsp;&nbsp;&nbsp;```Country```: String <br>&nbsp;&nbsp;&nbsp;&nbsp;```Country Code```: String <br> &nbsp;&nbsp;&nbsp;&nbsp;```City```: String <br> &nbsp;&nbsp;&nbsp;&nbsp;```State```: String <br> &nbsp;&nbsp;&nbsp;&nbsp;```Postal Code```: String|```POST```|
+|```/timeslots```|__Arguments:__<br> &nbsp;&nbsp;&nbsp;&nbsp;```Address```(Resolved) <br><br>__Returns:__<br>&nbsp;&nbsp;&nbsp;&nbsp;Timeslot Array of all avilable timeslots for the given address.|```POST```|
 
 
 
