@@ -98,7 +98,7 @@ async function LoadCourierApi(): Promise<ITimeSlot[]> {
 /**
  *
  * @param address - The address to check by
- * @returns Promise<ITimeSlot[] | number> - Code 500 if error occurred | Array of time slots that were loaded, filtering out slots were holidays occurr.
+ * @returns Promise<ITimeSlot[] | number> - Code HTTP_CODE.INTERNAL_ERROR if error occurred | Array of time slots that were loaded, filtering out slots were holidays occurr.
  */
 async function GetFilteredSlots(address: IAddress): Promise<ITimeSlot[] | number> {
     let filteredSlotsArray: ITimeSlot[] = [];

@@ -47,7 +47,7 @@ async function BookDelivery(user: IUser, timeslotId: ObjectId): Promise<number> 
 }
 /**
  * This function is used to get all deliveries for today.
- * @returns Promise<number | IDelivery[]> - returns all delivery results or HTTP_CODE 500 if there are any errors.
+ * @returns Promise<number | IDelivery[]> - returns all delivery results or HTTP_CODE HTTP_CODE.INTERNAL_ERROR if there are any errors.
  */
 async function GetDaily(): Promise<number | IDelivery[]> {
     const today = new Date();
@@ -69,7 +69,7 @@ async function GetDaily(): Promise<number | IDelivery[]> {
 }
 /**
  * This function is used to get all deliveries for this week.
- * @returns Promise<number | IDelivery[]> - returns all delivery results or HTTP_CODE 500 if there are any errors.
+ * @returns Promise<number | IDelivery[]> - returns all delivery results or HTTP_CODE HTTP_CODE.INTERNAL_ERROR if there are any errors.
  */
 async function GetWeekly(): Promise<number | IDelivery[]> {
     const today = new Date();

@@ -4,7 +4,7 @@ import { HTTP_CODE } from '../constants';
 /**
  *
  * @param searchTerm - uriEncoded searchTerm for googleMaps API.
- * @returns Promise<number | Record<string, any>> - returns the response from googleMaps API in json format. or HTTP_CODE 500 if the request failed.
+ * @returns Promise<number | Record<string, any>> - returns the response from googleMaps API in json format. or HTTP_CODE HTTP_CODE.INTERNAL_ERROR if the request failed.
  */
 async function RetriveGeoData(searchTerm: string): Promise<number | Record<string, string | any>> {
     const key = process.env.GEO_KEY;

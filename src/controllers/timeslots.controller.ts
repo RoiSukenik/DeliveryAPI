@@ -25,11 +25,11 @@ class TimeSlotsController {
         this.router.post(this.path, this.getFilterTimeSlots);
     }
 
-    getFilterTimeSlots = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    getFilterTimeSlots = async (req: express.Request, res: express.Response) => {
         const { address } = req.body;
         let filterTimeSlots = await GetFilteredSlots(address);
         if (filterTimeSlots === HTTP_CODE.INTERNAL_ERROR) res.sendStatus(HTTP_CODE.INTERNAL_ERROR);
-        res.status(200).json(filterTimeSlots);
+        res.status(HTTP_CODE.SUCCESS).json(filterTimeSlots);
     };
 }
 

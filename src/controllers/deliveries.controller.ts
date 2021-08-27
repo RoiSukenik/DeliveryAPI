@@ -37,16 +37,16 @@ class Delivery {
         res.status(resp);
     };
 
-    getDailyDeliveries = async (req: express.Request, res: express.Response) => {
+    getDailyDeliveries = async (res: express.Response) => {
         let daily = await GetDaily();
-        if (daily === HTTP_CODE.INTERNAL_ERROR) res.send(500);
-        res.status(200).json(daily);
+        if (daily === HTTP_CODE.INTERNAL_ERROR) res.send(HTTP_CODE.INTERNAL_ERROR);
+        res.status(HTTP_CODE.SUCCESS).json(daily);
     };
 
-    getWeeklyDeliveries = async (req: express.Request, res: express.Response) => {
+    getWeeklyDeliveries = async (res: express.Response) => {
         let Weekly = await GetWeekly();
-        if (Weekly === HTTP_CODE.INTERNAL_ERROR) res.send(500);
-        res.status(200).json(Weekly);
+        if (Weekly === HTTP_CODE.INTERNAL_ERROR) res.send(HTTP_CODE.INTERNAL_ERROR);
+        res.status(HTTP_CODE.SUCCESS).json(Weekly);
     };
 }
 export default Delivery;
