@@ -15,6 +15,7 @@ async function RetriveGeoData(searchTerm: string): Promise<number | Record<strin
     return geoDataJSON;
 }
 /**
+ *This function resovles type by given key
  *
  * @param addressObj - an address object.
  * @returns Promise<string | Record<string, any>> - returns an IAddress resolved object.
@@ -33,7 +34,11 @@ function resolveByType(addressObj: any): IAddress {
     }
     return resolvedObj as IAddress;
 }
-
+/**
+ *
+ * @param searchTerm
+ * @returns
+ */
 async function Resolve(searchTerm: string): Promise<IAddress | number> {
     const geoData = await RetriveGeoData(searchTerm);
     if (typeof geoData === 'number') return HTTP_CODE.INTERNAL_ERROR;

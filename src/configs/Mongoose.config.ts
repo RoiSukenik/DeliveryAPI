@@ -2,7 +2,7 @@ import { createConnection } from 'mongoose';
 import DataBase from './DataBase.config';
 
 class MongooseDatabase extends DataBase {
-    constructor(user: string, password: string, path: string) {
+    constructor(user: string | undefined, password: string | undefined, path: string | undefined) {
         super(user, password, path);
     }
 

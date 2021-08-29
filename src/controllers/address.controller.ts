@@ -14,7 +14,7 @@ class Address {
         this.router.post(this.path, CheckRequestParams, this.resolveAddress);
     }
 
-    resolveAddress = async (req: express.Request, res: express.Response) => {
+    private resolveAddress = async (req: express.Request, res: express.Response) => {
         const { searchTerm } = req.body;
         const encodedSearchTerm = encodeURIComponent(searchTerm);
         let response = await Resolve(encodedSearchTerm);
