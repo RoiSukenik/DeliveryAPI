@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { Resolve } from 'utils';
+import { CheckRequestParams, Resolve } from '../utils';
 import { HTTP_CODE } from '../constants';
 
 class Address {
@@ -11,7 +11,7 @@ class Address {
     }
 
     public initializeRoutes() {
-        this.router.post(this.path, this.resolveAddress);
+        this.router.post(this.path, CheckRequestParams, this.resolveAddress);
     }
 
     resolveAddress = async (req: express.Request, res: express.Response) => {

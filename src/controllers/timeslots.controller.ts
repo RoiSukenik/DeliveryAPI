@@ -1,7 +1,7 @@
 import { HTTP_CODE } from '../constants';
 import * as express from 'express';
-import { TimeSlotModel } from 'models';
-import { GetFilteredSlots, LoadCourierApi } from '../utils';
+import { TimeSlotModel } from '../models';
+import { CheckRequestParams, GetFilteredSlots, LoadCourierApi } from '../utils';
 
 class TimeSlotsController {
     public path = '/timeslots';
@@ -22,7 +22,7 @@ class TimeSlotsController {
             });
     }
     public initializeRoutes() {
-        this.router.post(this.path, this.getFilterTimeSlots);
+        this.router.post(this.path, CheckRequestParams, this.getFilterTimeSlots);
     }
 
     getFilterTimeSlots = async (req: express.Request, res: express.Response) => {
